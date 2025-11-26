@@ -1,0 +1,12 @@
+site_name: Nerd Out
+
+theme:
+  name: readthedocs
+
+nav:
+  - Home: index.md
+  - Requirements: requirements.md
+  - Applying: applying.md
+
+extra_css:
+  - css/extra.css
