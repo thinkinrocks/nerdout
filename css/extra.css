@@ -1,0 +1,7 @@
+.wy-side-nav-search {
+    background-color: rgb(120, 120, 141);
+}
+
+.wy-side-nav-search input[type="text"] {
+    border: none;
+}
