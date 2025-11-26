@@ -5,7 +5,7 @@ theme:
 nav:
   - Home: index.md
   - Requirements: requirements.md
-  - Applying: applying.md
+  - Apply: apply.md
 
 extra_css:
   - css/extra.css
