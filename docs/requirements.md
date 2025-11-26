@@ -36,7 +36,8 @@ State what you want the audience to take away from it (e.g. "Understand some unu
 
 Remember that people can be scared of specific topics (usually abstract math). That’s ok, make sure there is enough information on the slides to follow. 
 
-Example Topics:
+## Example Topics
+
 * what does `npm install` actually do?
 * CPU instructions you didn’t know existed
 * monoids without category theory trauma
