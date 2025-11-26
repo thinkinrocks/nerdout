@@ -1,5 +1,7 @@
 # Requirements
 
+These guidelines are here to help you prepare a fun, clear, and engaging minute talk on any nerdy topic you love! They’re not meant to restrict you, just to make sure everyone has a smooth experience and the audience can follow along. These are guidelines and can be bent for the benefit of the presentation.
+
 Pick a topic you actually enjoy. Don’t shoehorn yourself into something you don’t love. It can be a workshop, a tour, an introduction to somethinf or an attempt to get people interested. Anything goes!
 
 State what you want the audience to take away from it (e.g. "Understand some unusual cases that the Rust borrow checker can’t prove" or "Know what is needed to prove the Collatz Conjecture")
@@ -14,12 +16,12 @@ State what you want the audience to take away from it (e.g. "Understand some unu
 ## Technicalities
 
 * Slides are optional, but recommended. You can also use the whiteboard or paper printouts
-* If using slides…
-* keep the text minimal
-* consider using "speaker notes" or an analogous feature
-* include diagrams, code samples and pictures where helpful
-* bring your own laptop or have the slides at the ready as a PDF
-* test the slides on spot, maybe even in advance if possible
+* If using slides...
+    * keep the text minimal
+    * consider using "speaker notes" or an analogous feature
+    * include diagrams, code samples and pictures where helpful
+    * bring your own laptop or have the slides at the ready as a PDF
+    * test the slides on spot, maybe even in advance if possible
 * We also strongly encourage you to PR the the final version of the presentation into our GitHub repository with any other relevant materials
 
 ## Content
