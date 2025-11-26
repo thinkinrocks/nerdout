@@ -7,3 +7,5 @@ It’s to share curiosity, spark interest, and have fun learning together. All t
 Hosted bi-monthly (once every two months) at [Thinkin' Rocks*](https://www.thinkinrocks.com/).
 
 For now just check the [reqs](./requirements.md)
+
+This is all just [XKCD](https://xkcd.com/356/).
