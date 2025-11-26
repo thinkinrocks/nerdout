@@ -1,0 +1,497 @@
+#import "@preview/touying:0.6.1": *
+#import "@preview/cades:0.3.1": qr-code
+#import themes.simple: *
+
+#show: simple-theme.with(aspect-ratio: "16-9")
+
+= Turing-Complete Module Exports
+
+...maxxing out Python's object orientation. 
+
+by Artur Roos.
+
+== Self
+
+- Artur Roos.
+- First Year, Bachelor's of Computer Engineering.#pause
+- Programming Language madness enthusiast.
+
+==
+
+#align(center + horizon)[#text(64pt)[Python is an Object Oriented language.]]
+
+== Agenda
+
+- Dunder Methods
+- Modules
+- ???
+- Enlightenment
+- Q & A
+
+== Dunder/Magic Methods 
+
+```py
+class Vec2:
+  def __init__(self, x, y):
+      self.x = x
+      self.y = y
+  
+  def __add__(lhs, rhs):
+      return Vec2(lhs.x + rhs.x, lhs.y + rhs.y)
+
+a = Vec2(2, 3)
+b = Vec2(8, 9)
+c = a + b  # Vec(2 + 8, 9 + 3)
+```
+
+== Dunder/Magic Methods
+
+#columns(2)[
+  - `__init__`
+  - `__del__`
+  - `__repr__`
+  - `__str__`
+  - `__bytes__`
+  - `__format__`
+  - `__hash__`
+  - `__bool__`
+  - `__getattr__`
+  - `__getattribute__`
+  - `__setattr__`
+  - `__setattribute__`
+  - `__dir__`
+  - `__class__`
+  - `__set_name__`
+  - ...and others...
+]
+
+== Dunder/Magic Methods
+
+#columns(2)[
+  - `__init__` *#text(fill: blue)[OK ?]*
+  - `__del__` *#text(fill: red)[WTF ???]*
+  - `__repr__`
+  - `__str__` *#text(fill: blue)[OK ?]*
+  - `__bytes__` *#text(fill: red)[WTF ???]*
+  - `__format__` *#text(fill: red)[WTF ???]*
+  - `__hash__` *#text(fill: red)[WTF ???]*
+  - `__bool__` *#text(fill: blue)[OK ?]*
+  - `__getattr__`
+  - `__getattribute__`
+  - `__setattr__`
+  - `__setattribute__`
+  - `__dir__`
+  - `__class__` *#text(fill: red)[WTF ???]*
+  - `__set_name__` *#text(fill: red)[WTF ???]*
+  - ...and others...
+]
+
+== Dunder/Magic Methods
+
+#columns(2)[
+  - #text(fill: gray)[`__init__`]
+  - #text(fill: gray)[`__del__`]
+  - #text(fill: gray)[`__repr__`]
+  - #text(fill: gray)[`__str__`]
+  - #text(fill: gray)[`__bytes__`]
+  - #text(fill: gray)[`__format__`]
+  - #text(fill: gray)[`__hash__`]
+  - #text(fill: gray)[`__bool__`]
+  - *`__getattr__`*
+  - *`__getattribute__`*
+  - *`__setattr__`*
+  - *`__setattribute__`*
+  - #text(fill: gray)[`__dir__`]
+  - #text(fill: gray)[`__class__`]
+  - #text(fill: gray)[`__set_name__`]
+  - #text(fill: gray)[...and others...]
+]
+
+== Dunder/Magic Methods
+
+```py
+class DictionaryObject:
+    # supply the dictionary in the constructor
+    def __init__(self, dictionary: dict):
+        self.dictionary = dictionary
+
+    # called when a member is accessed
+    def __getattr__(self, value: str) -> str:
+        return self.dictionary[value]
+```
+
+== Dunder/Magic Methods
+
+#align(center)[#box[#align(left)[
+```py
+dictionary = {'foo': 'bar'}
+do = DictionaryObject(dictionary)
+```
+#pause
+```py
+>>> do.dictionary is dictionary
+True
+```
+#pause
+```py
+>>> do.__getattr__('foo')
+'bar'
+```
+#pause
+```py
+>>> do.foo
+'bar'
+```
+#pause
+```py
+>>> do.qua
+KeyError: 'qua'
+```
+]]]
+
+==
+
+#align(center + horizon)[#text(64pt)[Python is an Object Oriented language.]]
+No, seriously.
+Yes, it's really object oriented.
+
+== Agenda
+
+- Dunder Methods
+- *Modules*
+- ???
+- Enlightenment
+- Q & A
+
+
+== Modules
+
+#align(center)[
+#grid(
+  columns: 2,
+  column-gutter: 4cm,
+  [
+  ```py
+  >>> import math
+  ```
+  ```py
+  >>> type(math)
+  <class 'module'>
+  ```
+  ```py
+  >>> math.sin(0)
+  0.0
+```#pause],
+[```py
+# example.py
+def sqr(x):
+    return x * x
+
+>>> import example
+>>> maths.sqr(4)
+16
+```]
+)]
+
+== Modules
+
+#align(center)[#block[#align(left)[
+```py
+# crude, but valid
+import math
+import example
+sin = math.sin
+cos = math.cos
+sqr = example.sqr
+```
+#pause
+```py
+# idiomatic
+from math import sin, cos
+from example import sqr
+```]]]
+
+== Modules
+
+#align(center)[
+```py
+import math       # type(math) == builtins.module
+import example    # type(example) == builtins.module
+
+sin = math.sin
+cos = math.cos
+sqr = example.sqr
+```]
+
+#pause
+
+#align(center)[*#text(32pt, fill: red)[Wait... MODULES ARE OBJECTS?..]*]
+
+==
+
+#align(center + horizon)[#text(64pt)[Python is an Object Oriented language.]]
+
+== Modules
+
+#align(center)[
+```py
+# counter.py
+i = 0
+def __iadd__(self, rhs):
+    global i
+    i += rhs
+
+>>> import counter
+>>> counter.__iadd__(2)
+>>> counter += 4
+>>> counter.i
+6
+```
+]
+
+== Agenda
+
+- Dunder Methods
+- Modules
+- *???* (you are here)
+- Enlightenment
+- Q & A
+
+== ???
+
+```py
+# attrprinter.py
+
+def __getattr__(self, value):
+    print(f"Access to {value}!")
+
+>>> from attrprinter import LionKing, alphabet, _
+Access to LionKing!
+Access to alphabet!
+Access to _!
+```
+
+== Agenda
+
+- Dunder Methods
+- Modules
+- #strike[??? (you are here)] *Usecases!*
+- Enlightenment
+- Q & A
+
+== Usecases: HTBuilder
+
+```py
+>>> from htbuilder import b, i
+>>> hello = b(i("Hello, world!"))
+<htbuilder.HtmlElement object at 0x7ffb63da9650>
+```
+```py
+>>> str(hello)
+'<b><i>Hello, world!</i></b>'
+```
+#pause
+```py
+>>> from htbuilder import amogus
+>>> amogus("ඞ")
+'<amogus>ඞ</amogus>'
+```
+
+== Usecases: SymPy
+
+```py
+>>> from sympy import symbols, sin, cos, pi
+>>> x, y, z = symbols("x, y, z")
+>>> expr = cos(x) + sin(y)
+>>> expr.subs(cos(x), y)
+z + sin(y)
+>>> expr.subs(x, 0).subs(y, pi / 2)
+2
+```
+
+== Usecases: SymPy
+
+#align(center)[
+#grid(
+  columns: 2,
+  column-gutter: 1cm,
+  [
+  This is lovely...
+  ```py
+  from sympy import symbols
+  x, y, z = symbols("x, y, z")
+  ```
+#pause],
+[But this is better!```py
+from sympy.abc import x, y, z
+```]
+)]
+
+== Usecases: SymPy
+
+#align(center)[
+#grid(
+  columns: 2,
+  column-gutter: 1cm,
+  [
+  ```py
+# hooke.py
+from sympy.abc import x, k
+F = -k * x
+
+# parabola.py
+from sympy.abc import x
+y = x**2 - x - 1```
+#pause],
+[#pause```py
+from sympy.abc import J
+```
+```py
+>>> W = F * y
+>>> W
+(-k*x) * (x**2 - x - 1)
+```
+#pause
+```py
+>>> W.subs(hookes_x, J)
+(-J*k) * (J**2 - J - 1)
+```💥💥💥💥💥💥💥]
+)]
+
+== 
+
+#align(center + horizon)[#text(128pt)[`¯\_(ツ)_/¯`]]
+
+== Usecases: Units with Pint
+
+```py
+# pint.py
+GLOBAL_REGISTRY = UnitRegistry()
+def __getattr__(self, unit):
+    if unit in GLOBAL_REGISTRY:
+        return getattr(GLOBAL_REGISTRY, unit)
+    else:
+        raise KeyError(...)
+>>> from pint import m, cm
+>>> 3 * m + 4 * cm
+<Quantity(3.04, 'meter')>
+```
+
+== Usecases: Dynamic Function Loading
+
+Current usage example:
+```py
+# library.dll
+dll = ctypes.CDLL("library.dll")
+function = getattr(dll, "function")
+```
+
+== Usecases: Dynamic Function Loading
+
+Current usage example:
+```py
+# library.dll
+dll = ctypes.CDLL("library.dll")
+function = dll.__getattr__("function")  # getattr
+dll.function
+```
+This is how it is already done in the standard library!
+
+== Usecases: `DictionaryObject`
+
+#align(center)[
+#grid(
+  columns: 2,
+  column-gutter: 1cm,
+  image("Screenshot From 2025-11-26 17-34-13.png", height: 75%),
+[#align(left)[```py
+from types import SimpleNamespace as SN
+
+person = SN(name="Alice", age=30)
+```
+```py
+person.name  # Alice
+person.age   # 30
+```]])
+]
+
+== Agenda
+
+- Dunder Methods
+- Modules
+- ???
+- *Enlightenment*
+- Q & A
+
+==
+
+#align(center + horizon)[#text(64pt)[Python is an Object Oriented language.]]
+
+
+== Enlightenment
+
+#align(center)[#block[#align(left)[
+```py
+# module.py
+public = 0
+private = 1
+__all__ = ["public"]
+```#pause
+```py
+
+>>> from module import * 
+>>> public
+0
+>>> private 
+```
+```
+NameError: name 'private' is not defined
+```
+]]]
+
+== Enlightenment
+
+#align(center)[#block[#align(left)[
+```py
+# htbuilder.py
+
+def __getattr__(self, tag):
+    ...
+
+__all__ = ['span', 'div']
+
+>>> from htbuilder import *
+>>> div(span("Hello, world!"))
+'<div><span>Hello, world!</span></div>'
+```
+]]]
+
+
+== Enlightenment
+
+#columns(2)[
+  - `__init__`
+  - `__del__`
+  - `__repr__`
+  - `__str__`
+  - `__bytes__`
+  - `__format__`
+  - `__hash__`
+  - `__bool__`
+  - `__getattr__`
+  - `__getattribute__`
+  - `__setattr__`
+  - `__setattribute__`
+  - `__dir__`
+  - `__class__`
+  - `__set_name__`
+  - ...and others...
+]
+
+==
+
+#align(center + horizon)[#text(64pt)[Python is an Object Oriented language.]]
+
+==
+
+#align(center + horizon)[#text(64pt)[_Questions?_]]
