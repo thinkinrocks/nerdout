@@ -58,3 +58,7 @@ Remember that people can be scared of specific topics (usually abstract math). T
 * What is Stephen Wolfram even on about?
 * Why old robot videos seem as good as modern ones
 * X is an old piece of junk and its my favourite piece of hardware 
+
+## Next Steps
+
+Ready and excited? [Apply now!](./apply.md)
