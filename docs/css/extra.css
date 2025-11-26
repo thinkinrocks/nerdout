@@ -1,5 +1,7 @@
-.wy-side-nav-search {
-    background-color: rgb(120, 120, 141);
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    font-family: "Inter", sans-serif !important;
 }
 
 .wy-side-nav-search input[type="text"] {
