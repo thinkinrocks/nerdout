@@ -15,6 +15,8 @@ State what you want the audience to take away from it (e.g. "Understand some unu
 
 The numbers are flexible! Some people need more time, some need less. Just be aware of how much time YOU are taking up.
 
+![An example of something that could be presented. Talking about what the f is going on is appropriate.](xkcd730.png)
+
 ## Technicalities
 
 * Slides are optional, but recommended. You can also use the whiteboard or paper printouts
